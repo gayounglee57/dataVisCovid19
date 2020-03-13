@@ -8,6 +8,7 @@ import {
   Sphere,
   Graticule
 } from "react-simple-maps";
+import Slider from '@material-ui/core/Slider';
 
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";

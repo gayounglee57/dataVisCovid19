@@ -8,7 +8,7 @@ import {
   Sphere,
   Graticule
 } from "react-simple-maps";
-import Slider from '@material-ui/core/Slider';
+import * as moment from 'moment';
 
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
@@ -17,9 +17,8 @@ const colorScale = scaleLinear()
   .domain([1, 20000])
   .range(["#ffedea", "#ff5233"]);
 
-const MapChart = () => {
+const MapChart = (props) => {
   const [data, setData] = useState([]);
-
   useEffect(() => {
     csv(`/covid_19_data_recent.csv`).then(data => {
       setData(data);
@@ -41,7 +40,7 @@ const MapChart = () => {
             // geographies is array of all the countries from geojson url
             geographies.map(geo => {
               // data is array of all the rows in dataset
-              const countryArray = data.filter(s => s["Country/Region"].includes(geo.properties.NAME) && s.ObservationDate === "2/02/20");
+              const countryArray = data.filter(d => d["Country/Region"].includes(geo.properties.NAME) && moment(d["Last Update"]).format("DDDD") === "0" + props.day);
               const countrySum = countryArray.reduce((acc, current, index) => acc + parseInt(countryArray[index].Confirmed), 0);
               return (
                 <Geography

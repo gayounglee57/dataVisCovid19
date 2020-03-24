@@ -10,6 +10,14 @@
   flex-direction: column;
 }
 
+.heading {
+  color: rgb(155, 152, 158);
+  font-size: 40px;
+  font-family: "Courier", "Courier New", "monospaced";
+  margin: 30px 20px 0px 20px;
+  text-align: center;
+}
+
 .map-container {
   width: 100%;
 }
@@ -17,4 +25,43 @@
 .slider-container {
   width: 50%;
   margin-bottom: 10%;
+}
+
+.legend-container {
+  color: rgb(155, 152, 158);
+  font-size: 14px;
+  font-family: "Courier", "Courier New", "monospaced";
+  margin: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.legend-box {
+  background-color: #ff5233;
+  width: 14px;
+  height: 14px;
+  margin-right: 10px;
+}
+
+@media (max-width: 1000px) {
+  .heading {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 700px) {
+  .heading {
+    font-size: 20px;
+  }
+
+  .legend-box {
+    width: 8px;
+    height:8px;
+  }
+
+  .legend-label {
+    font-size: 10px;
+  }
 }
